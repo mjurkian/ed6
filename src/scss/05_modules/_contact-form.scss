@@ -1,0 +1,134 @@
+.form {
+  margin: 0 15px 70px;
+
+  &__container {
+    background: $c-light-grey;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 30px 20px;
+
+    h3 {
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: rem(18);
+      font-weight: 800;
+      line-height: 22px;
+    }
+
+    form {
+      text-align: right;
+
+      label {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      input:not(.button), textarea {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 2px solid transparent;
+      }
+
+      textarea {
+        margin-bottom: 25px;
+      }
+
+      ::placeholder {
+        color: $c-grey;
+        opacity: .6;
+      }
+
+      input:not(.button):focus, textarea:focus {
+        outline: none !important;
+        border: 2px solid $c-dark-blue;
+        background: #edf7ff;
+      }
+
+      .button {
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+        background: $c-dark-blue;
+        cursor: pointer;
+      }
+
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    form {
+      input:not(.button), textarea {
+        padding: 10px 20px;
+      }
+
+      .name-row {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: 48%;
+        }
+      }
+      .budget-row {
+        display: flex;
+        justify-content: space-between;
+
+        #dealership {
+          width: 63%;
+        }
+        #budget {
+          width: 33%;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    @include make-container();
+    @include make-container-max-widths();
+
+    &__container {
+      padding: 50px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &__container {
+      padding: 50px;
+      max-width: 700px;
+      margin: 0 auto 70px;
+
+      form {
+        input:not(.button), textarea {
+          padding: 10px 20px;
+        }
+
+        .name-row {
+          input {
+            width: 49%;
+          }
+        }
+        .budget-row {
+          #dealership {
+            width: 68%;
+          }
+          #budget {
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
+}

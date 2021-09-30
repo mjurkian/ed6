@@ -1,0 +1,298 @@
+.hero-image {
+	position: relative;
+	background-color: $c-light-grey;
+
+	&__background {
+		background: $c-blue;
+		clip-path: ellipse(240% 100% at 50% 0%);
+	}
+
+	&__content {
+		margin: 0 0 50px;
+		color: $c-white;
+		display: flex;
+		flex-direction: column;
+
+		&--text {
+			z-index: 10;
+			margin: 0 15px;
+
+			h1 {
+				margin: 0 0 14px 0;
+				line-height: 32px;
+				color: $c-white;
+			}
+
+			p {
+				line-height: 22px;
+			}
+		}
+
+		&--image {
+			position: relative;
+			width: 375px;
+			height: 250px;
+			margin: 0 auto;
+
+			img {
+				position: absolute;
+
+				&:nth-child(1) {
+					z-index: 1;
+					right: 32px;
+					top: 0;
+					max-height: 250px;
+				}
+
+				&:nth-child(2) {
+					z-index: 3;
+					top: 0;
+					right: -5px;
+					max-height: 320px;
+				}
+			}
+		}
+
+		&--learn {
+			display: none;
+		}
+	}
+
+	&__overlay-image {
+		position: relative;
+		width: 375px;
+		margin: 0 auto;
+
+		img {
+			position: absolute;
+			bottom: -31px;
+			right: 151px;
+			max-height: 255px;
+		}
+	}
+
+	&__banner {
+		margin: 0 15px;
+		text-align: center;
+		font-family: $font-family-header;
+
+		p {
+			padding: 20px 10px;
+			border-bottom: 2px solid $c-blue;
+			margin: 0;
+
+			span {
+				font-weight: 700;
+			}
+
+			&:last-of-type {
+				border-bottom: none;
+			}
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		&__background {
+			clip-path: ellipse(160% 100% at 50% 0%);
+			padding-bottom: 40px;
+		}
+
+		&__content {
+			flex-direction: row;
+			margin: 0 15px 0;
+
+			&--text, &--image {
+				@include make-col-ready();
+				@include make-col(9);
+				margin: 0;
+				padding: 0;
+			}
+
+			&--image {
+				height: initial;
+
+				img {
+					&:nth-child(1) {
+						right: 12px;
+						top: 40px;
+						max-height: 220px;
+					}
+
+					&:nth-child(2) {
+						top: initial;
+						right: -25px;
+						bottom: -40px;
+						max-height: 340px;
+					}
+				}
+			}
+		}
+
+		&__overlay-image {
+			width: initial;
+
+			img {
+				bottom: -44px;
+				right: 42px;
+				max-height: 260px;
+			}
+		}
+
+		&__banner {
+			display: flex;
+			margin: -10px 0 60px;
+
+			p {
+				width: 33.3%;
+				border-bottom: none;
+				padding: 60px 5px 40px;
+				border-right: 1px solid $c-blue;
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		&__background {
+			clip-path: ellipse(100% 100% at 50% 0%);
+			padding-bottom: 100px;
+		}
+
+		&__content {
+			&--image {
+				img {
+					&:nth-child(1) {
+						max-height: 215px;
+						right: 35px;
+						top: initial;
+						bottom: 90px;
+					}
+
+					&:nth-child(2) {
+						right: -25px;
+						bottom: -120px;
+						max-height: 380px;
+					}
+				}
+			}
+		}
+
+		&__overlay-image {
+			img {
+				bottom: -30px;
+				right: 72px;
+			}
+		}
+
+		&__banner {
+			p {
+				padding: 90px 15px 70px;
+			}
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		&__background {
+			clip-path: ellipse(80% 100% at 50% 0%);
+		}
+
+		&__overlay-image {
+			@include make-container();
+			@include make-container-max-widths();
+
+			img {
+				bottom: -44px;
+				right: 91px;
+				max-height: 310px;
+			}
+		}
+
+		&__content {
+			@include make-container();
+			@include make-container-max-widths();
+			position: relative;
+
+			&--text{
+				@include make-col(10);
+			}
+
+			&--image {
+				@include make-col(8);
+				img {
+					&:nth-child(1) {
+						max-height: 250px;
+					}
+
+					&:nth-child(2) {
+						max-height: 400px;
+					}
+				}
+			}
+
+			&--learn {
+				display: block;
+				position: absolute;
+				bottom: -40px;
+				left: 50%;
+				transform: translateX(-50%);
+
+				a {
+					border-bottom: 2px solid $c-dark-blue;
+					font-family: $font-family-header;
+					font-size: rem(14);
+					padding-bottom: 3px;
+					text-decoration: none;
+					color: $c-white;
+					transition: color .2s linear;
+
+					&:hover {
+						color: #124c88;
+					}
+
+					&:after {
+						content: '';
+						width: 20px;
+						height: 20px;
+						position: absolute;
+						bottom: -25px;
+						left: 50%;
+						transform: translateX(-50%) rotate(-90deg);
+						background-image: url(images/arrow.svg);
+						background-size: 20px;
+						animation: bounce 2s;
+						animation-iteration-count: infinite;
+					}
+				}
+			}
+		}
+
+		&__banner {
+			@include make-container();
+			@include make-container-max-widths();
+		}
+	}
+
+	@include media-breakpoint-up(xl) {
+		&__background {
+			clip-path: ellipse(70% 100% at 50% 0%);
+		}
+
+		&__content {
+			&--image {
+				img {
+					&:nth-child(1) {
+						max-height: 250px;
+						bottom: 62px;
+					}
+
+					&:nth-child(2) {
+						max-height: 400px;
+					}
+				}
+			}
+		}
+	}
+}

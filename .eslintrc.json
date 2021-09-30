@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "airbnb-base",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "comma-dangle": "off",
+        "quotes": "off",
+        "arrow-parens":"off",
+        "operator-linebreak": "off",
+        "implicit-arrow-linebreak": "off",
+        "max-len": ["error", 100, 2, {
+            "ignoreUrls": true,
+            "ignoreComments": true,
+            "ignoreRegExpLiterals": true,
+            "ignoreStrings": false,
+            "ignoreTemplateLiterals": false
+        }]
+    }
+}

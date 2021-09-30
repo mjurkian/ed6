@@ -1,0 +1,20 @@
+////
+/// Typography
+
+h1, h2, h3, h4 {
+  font-family: $font-family-header;
+  color: $c-blue;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: rem(24);
+}
+
+h2 {
+  font-size: rem(20);
+}
+
+h3 {
+  font-size: rem(20);
+}

@@ -1,0 +1,24 @@
+////
+/// Functions
+////
+
+$root-context: 16 !default;
+
+/// Convert Px to Rem
+///
+/// @param $pixels - Target size in pixels
+/// @param $context [$browser-context] - Context size in pixels
+/// @return {string} Size in Rem units
+///
+/// @example: font-size: rem(12);
+@function rem($pixels, $context: $root-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}

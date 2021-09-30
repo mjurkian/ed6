@@ -1,0 +1,111 @@
+html {
+  min-width: 320px;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+  color: $c-grey;
+  margin: 0;
+  font-family: $font-family-base;
+
+  &.isFixed {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+// Only display content to screen readers
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.back-to-top {
+  z-index: 2000;
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  background: $c-dark-blue;
+  right: 15px;
+  bottom: 30px;
+  border-radius: 10px;
+  opacity: 0;
+  cursor: pointer;
+  transform: scale(0);
+  transition: 0.25s all ease;
+
+  @include media-breakpoint-up(md) {
+    right: 30px;
+  }
+
+  &.active {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+
+    &:before {
+      transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, 45deg);
+    }
+
+    &:after {
+      transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, -45deg);
+    }
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: white;
+    border-radius: 4px;
+    top: 45%;
+    transition: 0.25s all ease;
+    transform: rotate(0);
+  }
+
+  &:before {
+    left: calc(50% + 1px);
+  }
+
+  &:after {
+    right: 50%;
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      top: 40%;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) translateX(-50%) rotate(-90deg);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-50%) rotate(-90deg);
+  }
+}
+

@@ -1,0 +1,37 @@
+// This is the single file output. It is intended to ONLY @import other files.
+
+// 1 - The utilities/ folder gathers all Sass tools and helpers used across the project
+@import
+    '01_utilities/variables',
+    '01_utilities/functions',
+    '01_utilities/mixins';
+
+// 2 - The vendors/ folder containing all the CSS files from external libraries and frameworks
+@import
+    '02_vendors/fonts';
+
+// 3 - The base/ folder holds what we might call the boilerplate code for the project.
+@import
+    '03_base/global',
+    '03_base/breakpoints',
+    '03_base/type';
+
+// 4 - The layout/ folder contains everything that takes part in laying out the site or application.
+@import
+    '04_layout/nav',
+    '04_layout/header',
+    '04_layout/hero-image',
+    '04_layout/footer';
+
+// 5 - For smaller components, there is the modules/ folder.
+@import
+    '05_modules/two-column-content.scss',
+    '05_modules/quote',
+    '05_modules/contact-form',
+    '05_modules/button';
+
+// 6 - If you have page-specific styles, it is better to put them in a pages/ folder, in a file named after the page.
+//@import
+//	'06_pages/home';
+
+// 7 - On large sites and applications, it is not unusual to have different themes.

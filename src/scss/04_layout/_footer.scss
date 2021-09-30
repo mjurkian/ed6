@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px 0 20px;
+  color: $c-white;
+  background: $c-blue;
+  letter-spacing: 1px;
+
+  clip-path: ellipse(150% 100% at 50% 100%);
+
+  img {
+    max-width: 300px;
+    margin: 0 auto 25px;
+  }
+
+  .button {
+    margin: 0 auto 40px;
+    font-size: rem(14);
+  }
+
+  &__bar {
+    p {
+      font-size: rem(15);
+      margin: 0 20px;
+    }
+
+    a {
+      color: $c-white;
+      padding: 0 15px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+}

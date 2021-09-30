@@ -1,0 +1,16 @@
+.button {
+	line-height: 1;
+	padding: 12px 25px;
+	background: $c-blue;
+	border-radius: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: $font-family-header;
+	color: $c-white;
+	letter-spacing: 2px;
+
+	&--white {
+		background: $c-white;
+		color: $c-blue;
+	}
+}
